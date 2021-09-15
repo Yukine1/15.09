@@ -142,10 +142,12 @@
     <ClCompile Include="15.09.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Human.cpp" />
+    <ClCompile Include="MyLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
     <ClInclude Include="Human.h" />
+    <ClInclude Include="MyLibrary.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

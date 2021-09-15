@@ -3,13 +3,6 @@
 
 using namespace std;
 
-Book::Book()
-{
-	this->name = nullptr;
-	this->author = nullptr;
-	this->genre = nullptr;
-}
-
 Book::Book(const char* name, const char* author, const char* genre)
 {
 	this->name = new char[strlen(name) + 1];
@@ -46,33 +39,54 @@ Book::~Book()
 	this->genre = nullptr;
 }
 
-void Book::Print()
+void Book::Print()const
 {
+	cout << "Name of book: " << name << endl;
+	cout << "Author: " << author << endl;
+	cout << "Genre: " << genre << endl;
 }
 
-void Book::SetNameBook()
+void Book::SetNameBook(char* name)
 {
+	if (this->name != nullptr)
+	{
+		delete[]this->name;
+		this->name = nullptr;
+	}
+	this->name = name;
 }
 
-void Book::SetAuthorBook()
+void Book::SetAuthorBook(char* author)
 {
+	if (this->author != nullptr)
+	{
+		delete[]this->author;
+		this->author = nullptr;
+	}
+	this->author = author;
 }
 
-void Book::SetGenreBook()
+void Book::SetGenreBook(char* genre)
 {
+	if (this->genre != nullptr)
+	{
+		delete[]this->genre;
+		this->genre = nullptr;
+	}
+	this->genre = genre;
 }
 
 const char* Book::GetNameBook()
 {
-	return nullptr;
+	return name;
 }
 
 const char* Book::GetAuthorBook()
 {
-	return nullptr;
+	return author;
 }
 
 const char* Book::GetGenreBook()
 {
-	return nullptr;
+	return genre;
 }

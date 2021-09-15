@@ -3,14 +3,6 @@
 #include <ctime>
 using namespace std;
 
-Human::Human()//default constructor
-{
-	Fname = nullptr;
-	Sname = nullptr;
-	IdHuman = 0;
-	OnHands = false;
-}
-
 Human::Human(const char* Fname, const char* Sname, bool OnHands)//constructor with param
 {
 	srand(time(0));
@@ -50,7 +42,7 @@ Human::Human(const Human& vis)//copying constructor
 	this->IdHuman = vis.IdHuman;
 }
 
-void Human::Print()
+void Human::Print()const
 {
 	cout << "Firstname: " << Fname << endl;
 	cout << "Surname: " << Sname << endl;
@@ -61,38 +53,33 @@ void Human::Print()
 	cout << "Id human: " << IdHuman << endl;
 }
 
-void Human::SetFname()
+void Human::SetFname(char* Fname)
 {
 	if (this->Fname != nullptr)
 	{
 		delete[]this->Fname;
 		this->Fname = nullptr;
 	}
-	cout << "Enter your firstname: ";
-	cin.getline(Fname,20);
-	cin.ignore();
+	this->Fname = Fname;
 }
 
-void Human::SetSname()
+void Human::SetSname(char* Sname)
 {
 	if (this->Sname != nullptr)
 	{
 		delete[]this->Sname;
 		this->Sname = nullptr;
 	}
-	cout << "Enter your surname: ";
-	cin.getline(Sname, 20);
-	cin.ignore();
+	this->Sname = Sname;
 }
 
-void Human::SetHumanId()
+void Human::SetHumanId(char* IdHuman)
 {
 	if (this->IdHuman != 0)
 	{
 		this->IdHuman = 0;
 	}
-	cout << "Enter your Id: ";
-	cin >> IdHuman;
+	this->IdHuman = IdHuman;
 }
 
 const char* Human::GetFname()
@@ -105,7 +92,12 @@ const char* Human::GetSname()
 	return Sname;
 }
 
-bool Human::GetHumanId()
+const char* Human::GetHumanId()
 {
 	return IdHuman;
+}
+
+bool Human::GetOnHands()
+{
+	return OnHands;
 }
